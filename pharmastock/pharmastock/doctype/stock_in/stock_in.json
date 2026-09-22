@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "SI-.MM.YY.-.####",
+ "creation": "2026-09-01 14:44:27.524370",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "stock_information_section",
+  "stock_in_date",
+  "purchase_invoice_no",
+  "supplier",
+  "column_break_wkni",
+  "status",
+  "amended_from",
+  "items_section",
+  "items",
+  "totals_section",
+  "total_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "stock_information_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Information"
+  },
+  {
+   "default": "Today",
+   "fieldname": "stock_in_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Stock In Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purchase_invoice_no",
+   "fieldtype": "Data",
+   "label": "Purchase Invoice No"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Data",
+   "label": "Supplier"
+  },
+  {
+   "fieldname": "column_break_wkni",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Amended From",
+   "options": "Stock In",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Stock In Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-02 14:17:04.383975",
+ "modified_by": "Administrator",
+ "module": "Pharmastock",
+ "name": "Stock In",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

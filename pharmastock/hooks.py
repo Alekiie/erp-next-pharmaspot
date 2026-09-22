@@ -24,7 +24,14 @@ use_json_request_body = True
 # 		"has_permission": "pharmastock.api.permission.has_app_permission",
 # 	}
 # ]
-
+def get_navigation_items():
+    return [
+        {
+            "name": "Pharmacy Dashboard",
+            "route": "/pharmacy-dashboard",
+            "icon": "fa fa-dashboard"
+        }
+    ]
 # The dock, the rail down the left of the desk, is a document rather than a hook. Author it in
 # Manage Dock on a developer-mode site and press Export to App, and it is written to
 # `pharmastock/dock/pharmastock/pharmastock.json` for git to carry. An app that ships none has no
@@ -70,7 +77,7 @@ use_json_request_body = True
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "/desk/pharmacy-dashboard"
 
 # website user home page (by Role)
 # role_home_page = {

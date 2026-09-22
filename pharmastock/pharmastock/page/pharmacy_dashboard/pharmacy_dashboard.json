@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-09-06 11:37:43.240344",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-09-06 15:22:48.828161",
+ "modified_by": "Administrator",
+ "module": "Pharmastock",
+ "name": "pharmacy-dashboard",
+ "owner": "Administrator",
+ "page_name": "pharmacy-dashboard",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 1,
+ "title": "Pharmastock Dashboard"
+}
