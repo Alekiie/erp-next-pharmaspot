@@ -15,23 +15,27 @@ use_json_request_body = True
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "pharmastock",
-# 		"logo": "/assets/pharmastock/logo.png",
-# 		"title": "Pharmastock",
-# 		"route": "/pharmastock",
-# 		"has_permission": "pharmastock.api.permission.has_app_permission",
-# 	}
-# ]
+add_to_apps_screen = [
+    {
+        "name": "pharmastock",
+        # "logo": "/assets/pharmastock/logo.png",
+        "title": "Pharmastock",
+        "route": "/desk/pharmacy-dashboard",
+        # "has_permission": "pharmastock.api.permission.has_app_permission",
+    }
+]
+
+
 def get_navigation_items():
     return [
         {
             "name": "Pharmacy Dashboard",
             "route": "/pharmacy-dashboard",
-            "icon": "fa fa-dashboard"
+            "icon": "fa fa-dashboard",
         }
     ]
+
+
 # The dock, the rail down the left of the desk, is a document rather than a hook. Author it in
 # Manage Dock on a developer-mode site and press Export to App, and it is written to
 # `pharmastock/dock/pharmastock/pharmastock.json` for git to carry. An app that ships none has no
@@ -310,4 +314,3 @@ require_type_annotated_api_methods = True
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

@@ -2,6 +2,8 @@ import frappe
 from frappe import _
 from frappe.model.document import Document
 from frappe.utils import today, getdate
+import re
+from frappe.model.naming import getseries
 
 
 class MedicineBatch(Document):
@@ -13,7 +15,8 @@ class MedicineBatch(Document):
     if TYPE_CHECKING:
         from frappe.types import DF
 
-        batch_number: DF.Data
+        batch_abbreviation: DF.Data | None
+        batch_number: DF.Data | None
         expiry_date: DF.Date
         is_expired: DF.Check
         manufacturing_date: DF.Date
@@ -67,6 +70,44 @@ class MedicineBatch(Document):
             self.is_expired = 1
         else:
             self.is_expired = 0
+
+    # Automate Batch Number Generation Instead of manual typing.Itatumia letter za kwanza za kila jina kwa Batch alafu inajoin na nummber nne.
+
+    def autoname(self):
+        
+        if not self.medicine:
+            frappe.throw(_("Please select a medicine first."))
+
+        # Get the readable medicine name using its Title Field
+        medicine_meta = frappe.get_meta("Medicine")
+        title_field = medicine_meta.title_field
+
+        medicine_name = None
+
+        if title_field:
+            medicine_name = frappe.db.get_value("Medicine", self.medicine, title_field)
+
+        # Fall back to the document ID if no title is configured
+        medicine_name = (medicine_name or self.medicine).strip()
+
+        # Extract initials from the medicine name
+        words = re.findall(r"[A-Za-z0-9]+", medicine_name)
+
+        if not words:
+            frappe.throw(_("Unable to generate a batch abbreviation."))
+
+        abbreviation = "BAT-"+"".join(word[:3] for word in words).upper()
+
+        # Store the abbreviation in your actual DocType field
+        self.batch_abbreviation = abbreviation
+
+        # Generate the next four-digit sequence for this medicine prefix
+        prefix = f"{abbreviation}-"
+        number = getseries(prefix, 4)
+
+        # Use the same value for the document ID and Batch Number
+        self.name = f"{prefix}{number}"
+        self.batch_number = self.name
 
 
 @frappe.whitelist()

@@ -1,0 +1,26 @@
+# Copyright (c) 2026, Alexander Maina and contributors
+# For license information, please see license.txt
+
+# import frappe
+from frappe.model.document import Document
+
+
+class SupplierInvoiceCheck(Document):
+	# begin: auto-generated types
+	# This code is auto-generated. Do not modify anything in this block.
+
+	from typing import TYPE_CHECKING
+
+	if TYPE_CHECKING:
+		from frappe.types import DF
+
+		amount: DF.Currency
+		due_date: DF.Date
+		invoice_date: DF.Date
+		invoice_number: DF.Data | None
+		status: DF.Literal["Draft", "Verified", "Rejected"]
+		supplier: DF.Link
+		vat_amount: DF.Currency
+	# end: auto-generated types
+
+	_DOCTYPE_NAME = "Supplier Invoice Check"

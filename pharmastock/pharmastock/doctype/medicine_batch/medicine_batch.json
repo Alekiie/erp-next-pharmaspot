@@ -18,7 +18,8 @@
   "selling_price",
   "is_expired",
   "validate_expiry_section",
-  "validate_expiry"
+  "validate_expiry",
+  "batch_abbreviation"
  ],
  "fields": [
   {
@@ -37,9 +38,9 @@
   {
    "fieldname": "batch_number",
    "fieldtype": "Data",
+   "hidden": 1,
    "in_list_view": 1,
-   "label": "Batch Number",
-   "reqd": 1
+   "label": "Batch Number"
   },
   {
    "fieldname": "manufacturing_date",
@@ -103,12 +104,19 @@
    "fieldtype": "Button",
    "label": "Validate Expiry",
    "options": "validate_expiry"
+  },
+  {
+   "fieldname": "batch_abbreviation",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Batch Abbreviation",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-02 14:15:35.357649",
+ "modified": "2026-10-29 13:06:22.606660",
  "modified_by": "Administrator",
  "module": "Pharmastock",
  "name": "Medicine Batch",
